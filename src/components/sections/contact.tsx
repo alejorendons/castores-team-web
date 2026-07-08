@@ -63,7 +63,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-20 md:py-32 bg-secondary">
+    <section id="contacto" className="py-16 sm:py-20 md:py-32 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Contacto"
@@ -73,14 +73,14 @@ export default function Contact() {
           light
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="p-8 rounded-2xl bg-white/[0.06] border border-white/10">
+            <div className="p-5 sm:p-8 rounded-2xl bg-white/[0.06] border border-white/10">
               <AnimatePresence mode="wait">
                 {status === "success" ? (
                   <motion.div
@@ -205,8 +205,8 @@ export default function Contact() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="p-6 rounded-2xl bg-white/[0.06] border border-white/10">
-              <h3 className="text-lg font-semibold text-white mb-4">
+            <div className="p-4 sm:p-6 rounded-2xl bg-white/[0.06] border border-white/10">
+              <h3 className="text-base sm:text-lg font-semibold text-white mb-4">
                 Información de Contacto
               </h3>
               <div className="space-y-4">
@@ -268,10 +268,10 @@ export default function Contact() {
               href={`https://wa.me/${siteConfig.whatsapp}?text=Hola! Me gustaría información sobre Team Castores`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/20 hover:bg-[#25D366]/20 transition-colors"
+              className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/20 hover:bg-[#25D366]/20 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#25D366] flex items-center justify-center">
-                <MessageCircle size={20} className="text-white" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#25D366] flex items-center justify-center shrink-0">
+                <MessageCircle size={18} className="text-white" />
               </div>
               <div>
                 <p className="font-semibold text-white">WhatsApp</p>

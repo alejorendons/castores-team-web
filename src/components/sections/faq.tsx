@@ -10,7 +10,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 md:py-32 bg-secondary">
+    <section className="py-16 sm:py-20 md:py-32 bg-secondary">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="FAQ"
@@ -54,9 +54,9 @@ export default function FAQ() {
                   aria-expanded={openIndex === i}
                   aria-controls={`faq-answer-${i}`}
                   id={`faq-question-${i}`}
-                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset rounded-2xl"
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset rounded-2xl"
                 >
-                  <span className="font-semibold text-white pr-4">
+                  <span className="font-semibold text-white text-sm sm:text-base pr-4">
                     {faq.question}
                   </span>
                   <motion.div
@@ -85,7 +85,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 text-white/70 text-sm leading-relaxed border-t border-white/10 pt-4">
+                      <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-white/70 text-xs sm:text-sm leading-relaxed border-t border-white/10 pt-3 sm:pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>

@@ -9,7 +9,7 @@ const galleryImages = [
   {
     src: "https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=600&q=80",
     alt: "Entrenamiento en piscina",
-    span: "col-span-1 row-span-2",
+    span: "col-span-1 row-span-1 sm:row-span-2",
   },
   {
     src: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=80",
@@ -24,7 +24,7 @@ const galleryImages = [
   {
     src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
     alt: "Clase de natación Team Castores",
-    span: "col-span-1 row-span-2",
+    span: "col-span-1 row-span-1 sm:row-span-2",
   },
   {
     src: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80",
@@ -120,7 +120,7 @@ export default function Gallery() {
               aria-label={`Ver imagen: ${img.alt}`}
             >
               <div
-                className="w-full h-full min-h-[200px] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full min-h-[150px] sm:min-h-[200px] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
                 style={{ backgroundImage: `url(${img.src})` }}
               />
               <div className="absolute inset-0 bg-secondary/0 group-hover:bg-secondary/60 transition-all duration-300 flex items-center justify-center">

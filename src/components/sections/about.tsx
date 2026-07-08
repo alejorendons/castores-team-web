@@ -46,7 +46,7 @@ export default function About() {
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-20"
         >
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden">
@@ -58,39 +58,39 @@ export default function About() {
                 }}
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-primary text-white rounded-2xl p-6 shadow-xl">
-              <div className="text-3xl font-bold">8+</div>
-              <div className="text-sm text-white/80">Años de excelencia</div>
+            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-primary text-white rounded-2xl p-4 sm:p-6 shadow-xl">
+              <div className="text-2xl sm:text-3xl font-bold">8+</div>
+              <div className="text-xs sm:text-sm text-white/80">Años de excelencia</div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
               Nuestra Historia
             </h3>
-            <p className="text-white/80 leading-relaxed mb-4">
+            <p className="text-white/80 leading-relaxed mb-4 text-sm sm:text-base">
               Team Castores nació de la pasión de un grupo de entrenadores y nadadores
               que creían que la natación, las carreras, la natación subacuática y el triatlón
               podían transformar vidas. Lo que comenzó como un pequeño grupo de entrenamiento
               en El Retiro, se ha convertido en uno de los clubes de natación más respetados
               de Antioquia.
             </p>
-            <p className="text-white/80 leading-relaxed mb-6">
+            <p className="text-white/80 leading-relaxed mb-6 text-sm sm:text-base">
               Nuestra misión es formar nadadores completos: atletas de alto rendimiento,
               personas disciplinadas y ciudadanos ejemplares. Creemos que los valores que
               se aprenden en la piscina se llevan para toda la vida.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="p-4 rounded-xl bg-white/[0.06] border border-white/10">
-                <h4 className="font-semibold text-white mb-1">Misión</h4>
-                <p className="text-sm text-white/70">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
+              <div className="p-3 sm:p-4 rounded-xl bg-white/[0.06] border border-white/10">
+                <h4 className="font-semibold text-white mb-1 text-sm sm:text-base">Misión</h4>
+                <p className="text-xs sm:text-sm text-white/70">
                   Formar campeones con valores, disciplina y excelencia deportiva.
                 </p>
               </div>
-              <div className="p-4 rounded-xl bg-white/[0.06] border border-white/10">
-                <h4 className="font-semibold text-white mb-1">Visión</h4>
-                <p className="text-sm text-white/70">
+              <div className="p-3 sm:p-4 rounded-xl bg-white/[0.06] border border-white/10">
+                <h4 className="font-semibold text-white mb-1 text-sm sm:text-base">Visión</h4>
+                <p className="text-xs sm:text-sm text-white/70">
                   Ser el club de natación y deportes acuáticos de referencia en Antioquia y Colombia.
                 </p>
               </div>
@@ -99,7 +99,7 @@ export default function About() {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 py-12 border-y border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mb-16 lg:mb-20 py-8 sm:py-12 border-y border-white/10">
           {stats.map((stat) => (
             <StatCounter key={stat.label} label={stat.label} value={stat.value} />
           ))}
@@ -131,11 +131,12 @@ export default function About() {
 
         {/* Timeline */}
         <div className="max-w-3xl mx-auto">
-          <h3 className="text-2xl font-bold text-center text-white mb-12">
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 sm:mb-12">
             Nuestra Trayectoria
           </h3>
           <div className="relative">
-            <div className="absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-white/15" />
+            {/* Vertical line - visible on mobile, centered on desktop */}
+            <div className="absolute left-4 sm:left-1/2 sm:-translate-x-px top-0 bottom-0 w-0.5 bg-white/15" />
             {timeline.map((item, i) => (
               <motion.div
                 key={item.year}
@@ -143,18 +144,19 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className={`relative flex items-center mb-8 ${
-                  i % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                className={`relative flex items-center mb-6 sm:mb-8 pl-10 sm:pl-0 ${
+                  i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
                 }`}
               >
-                <div className={`w-1/2 ${i % 2 === 0 ? "pr-8 text-right" : "pl-8"}`}>
-                  <div className="bg-white/[0.06] rounded-xl p-4 border border-white/10">
-                    <span className="text-primary font-bold">{item.year}</span>
-                    <h4 className="font-semibold text-white">{item.title}</h4>
-                    <p className="text-sm text-white/70">{item.description}</p>
+                <div className={`w-full sm:w-1/2 ${i % 2 === 0 ? "sm:pr-8 sm:text-right" : "sm:pl-8"} text-left`}>
+                  <div className="bg-white/[0.06] rounded-xl p-3 sm:p-4 border border-white/10">
+                    <span className="text-primary font-bold text-sm sm:text-base">{item.year}</span>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">{item.title}</h4>
+                    <p className="text-xs sm:text-sm text-white/70">{item.description}</p>
                   </div>
                 </div>
-                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-secondary" />
+                {/* Dot - left on mobile, centered on desktop */}
+                <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary border-2 sm:border-4 border-secondary" />
               </motion.div>
             ))}
           </div>

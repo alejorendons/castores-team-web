@@ -13,11 +13,11 @@ export default function Testimonials() {
   const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="relative py-20 md:py-32 bg-secondary overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-32 bg-secondary overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 lane-pattern opacity-10" />
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-water/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-60 h-60 sm:w-96 sm:h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-60 h-60 sm:w-96 sm:h-96 bg-water/10 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -38,9 +38,9 @@ export default function Testimonials() {
               transition={{ duration: 0.4 }}
               className="text-center"
             >
-              <Quote size={48} className="mx-auto mb-6 text-primary/30" />
+              <Quote size={36} className="mx-auto mb-4 sm:mb-6 text-primary/30" />
 
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 italic">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed mb-6 sm:mb-8 italic">
                 &ldquo;{testimonials[current].text}&rdquo;
               </p>
 
@@ -58,22 +58,22 @@ export default function Testimonials() {
           </AnimatePresence>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-10">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-10">
             <button
               onClick={prev}
               aria-label="Testimonio anterior"
-              className="w-12 h-12 rounded-full bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/[0.12] transition-all"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/[0.12] transition-all"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={18} />
             </button>
 
-            <div className="flex gap-2">
+            <div className="flex gap-1.5 sm:gap-2">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    i === current ? "bg-primary w-8" : "bg-white/20 hover:bg-white/40"
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${
+                    i === current ? "bg-primary w-6 sm:w-8" : "bg-white/20 hover:bg-white/40"
                   }`}
                 />
               ))}
@@ -82,9 +82,9 @@ export default function Testimonials() {
             <button
               onClick={next}
               aria-label="Siguiente testimonio"
-              className="w-12 h-12 rounded-full bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/[0.12] transition-all"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/[0.08] border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/[0.12] transition-all"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={18} />
             </button>
           </div>
         </div>

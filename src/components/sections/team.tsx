@@ -8,7 +8,7 @@ import { Award } from "lucide-react";
 
 export default function Team() {
   return (
-    <section id="equipo" className="py-20 md:py-32 bg-secondary">
+    <section id="equipo" className="py-16 sm:py-20 md:py-32 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Equipo Técnico"
@@ -18,7 +18,7 @@ export default function Team() {
           light
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.name}
@@ -37,23 +37,23 @@ export default function Team() {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                     <Badge variant="primary" className="mb-2">{member.role}</Badge>
-                    <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-white">{member.name}</h3>
                   </div>
                 </div>
 
                 {/* Info */}
-                <div className="p-6">
-                  <p className="text-sm text-white/70 mb-4">
+                <div className="p-4 sm:p-6">
+                  <p className="text-xs sm:text-sm text-white/70 mb-3 sm:mb-4">
                     {member.bio}
                   </p>
 
-                  <div className="mb-3">
+                  <div className="mb-2 sm:mb-3">
                     <p className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-1">
                       Especialidad
                     </p>
-                    <p className="text-sm text-primary">{member.specialty}</p>
+                    <p className="text-xs sm:text-sm text-primary">{member.specialty}</p>
                   </div>
 
                   <div>

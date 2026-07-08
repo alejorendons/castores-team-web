@@ -24,14 +24,14 @@ export default function Training() {
           />
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12" role="tablist">
+          <div className="flex overflow-x-auto pb-2 mb-12 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center gap-2 sm:gap-3 scrollbar-hide" role="tablist">
             {categories.map((cat, i) => (
               <button
                 key={cat.name}
                 onClick={() => setActiveCategory(i)}
                 role="tab"
                 aria-selected={activeCategory === i}
-                className={`px-6 py-3 rounded-xl font-medium transition-all ${
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all whitespace-nowrap shrink-0 ${
                   activeCategory === i
                     ? "bg-primary text-white shadow-lg shadow-primary/25"
                     : "bg-white/10 text-white/70 hover:bg-white/15 hover:text-white"
@@ -89,11 +89,11 @@ export default function Training() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="text-3xl font-bold text-primary">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">
                   {categories[activeCategory].price}
                 </div>
-                <Button size="lg" className="group">
+                <Button size="lg" className="group w-full sm:w-auto">
                   Inscribirse Ahora
                   <ChevronRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
                 </Button>

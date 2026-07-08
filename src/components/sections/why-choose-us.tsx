@@ -52,7 +52,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="por-que-elegirnos" className="py-20 md:py-32 bg-secondary">
+    <section id="por-que-elegirnos" className="py-16 sm:py-20 md:py-32 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="¿Por Qué Elegirnos?"
@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
           light
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {reasons.map((reason, i) => (
             <motion.div
               key={reason.title}
@@ -71,16 +71,16 @@ export default function WhyChooseUs() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <div className="h-full p-6 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300 group">
+              <div className="h-full p-4 sm:p-6 rounded-2xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.10] hover:border-white/20 transition-all duration-300 group">
                 <div
-                  className={`w-14 h-14 rounded-xl ${reason.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl ${reason.color} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform`}
                 >
-                  <reason.icon size={24} />
+                  <reason.icon size={20} />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
                   {reason.title}
                 </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
+                <p className="text-white/70 text-xs sm:text-sm leading-relaxed">
                   {reason.description}
                 </p>
               </div>

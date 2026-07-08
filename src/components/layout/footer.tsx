@@ -39,11 +39,11 @@ function YoutubeIcon() {
 export default function Footer() {
   return (
     <footer className="bg-secondary text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
               <div className="w-10 h-10 relative rounded-xl overflow-hidden">
                 <Image
                   src="/images/logo_castores.png"
@@ -53,13 +53,13 @@ export default function Footer() {
                   sizes="40px"
                 />
               </div>
-              <span className="font-bold text-xl">Team Castores</span>
+              <span className="font-bold text-lg sm:text-xl">Team Castores</span>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
               Formando campeones dentro y fuera del agua desde 2017.
               Experiencia, pasión y excelencia en la natación, carreras, natación subacuática y triatlón.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {[
                 { icon: FacebookIcon, href: siteConfig.social.facebook, label: "Facebook" },
                 { icon: InstagramIcon, href: siteConfig.social.instagram, label: "Instagram" },
@@ -72,7 +72,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"
                 >
                   <social.icon />
                 </a>
@@ -82,13 +82,13 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Enlaces</h3>
-            <ul className="space-y-3">
+            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Enlaces</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-primary transition-colors text-sm"
+                    className="text-gray-300 hover:text-primary transition-colors text-xs sm:text-sm"
                   >
                     {link.label}
                   </a>
@@ -99,20 +99,20 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Contacto</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-300 text-sm">
-                <MapPin size={18} className="text-primary mt-0.5 shrink-0" />
+            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Contacto</h3>
+            <ul className="space-y-3 sm:space-y-4">
+              <li className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
                 <span>{siteConfig.address}</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-300 text-sm">
-                <Phone size={18} className="text-primary shrink-0" />
+              <li className="flex items-center gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                <Phone size={16} className="text-primary shrink-0" />
                 <a href={`tel:${siteConfig.phone}`} className="hover:text-primary transition-colors">
                   {siteConfig.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-gray-300 text-sm">
-                <Mail size={18} className="text-primary shrink-0" />
+              <li className="flex items-center gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                <Mail size={16} className="text-primary shrink-0" />
                 <a href={`mailto:${siteConfig.email}`} className="hover:text-primary transition-colors">
                   {siteConfig.email}
                 </a>
@@ -122,11 +122,11 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Legal</h3>
-            <ul className="space-y-3">
+            <h3 className="font-semibold text-base sm:text-lg mb-4 sm:mb-6">Legal</h3>
+            <ul className="space-y-2 sm:space-y-3">
               {["Aviso Legal", "Política de Privacidad", "Términos y Condiciones", "Cookies"].map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                  <a href="#" className="text-gray-400 hover:text-primary transition-colors text-xs sm:text-sm">
                     {item}
                   </a>
                 </li>
@@ -136,8 +136,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-400 text-sm">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-gray-400 text-xs sm:text-sm">
             © {new Date().getFullYear()} Team Castores. Todos los derechos reservados.
           </p>
           <p className="text-gray-500 text-xs">
