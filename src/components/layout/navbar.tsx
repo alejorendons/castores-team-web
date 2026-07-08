@@ -4,31 +4,18 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/data";
 import Button from "@/components/ui/button";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("inicio");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      // Determine active section
-      const sections = navLinks.map((link) => link.href.replace("#", ""));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(sections[i]);
-            break;
-          }
-        }
-      }
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -41,6 +28,10 @@ export default function Navbar() {
     }
     return () => { document.body.style.overflow = ""; };
   }, [isMobileOpen]);
+
+  useEffect(() => {
+    setIsMobileOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -57,7 +48,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#inicio" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 relative rounded-xl overflow-hidden group-hover:scale-110 transition-transform">
                 <Image
                   src="/images/logo_castores.png"
@@ -78,15 +69,14 @@ export default function Navbar() {
                   Team Castores
                 </span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => {
-                const sectionId = link.href.replace("#", "");
-                const isActive = activeSection === sectionId;
+                const isActive = pathname === link.href;
                 return (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
@@ -98,22 +88,24 @@ export default function Navbar() {
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
 
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-4">
-              <Button
-                variant={isScrolled ? "primary" : "outline"}
-                size="sm"
-                className={`hidden sm:inline-flex ${
-                  !isScrolled ? "border-white text-white hover:bg-white hover:text-secondary" : ""
-                }`}
-              >
-                Únete al Equipo
-              </Button>
+              <Link href="/contacto" className="hidden sm:inline-flex">
+                <Button
+                  variant={isScrolled ? "primary" : "outline"}
+                  size="sm"
+                  className={`
+                    !isScrolled ? "border-white text-white hover:bg-white hover:text-secondary" : ""
+                  }`}
+                >
+                  Únete al Equipo
+                </Button>
+              </Link>
 
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -143,17 +135,24 @@ export default function Navbar() {
           >
             <div className="flex flex-col items-center justify-center h-full gap-2">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.div
                   key={link.href}
-                  href={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => setIsMobileOpen(false)}
-                  className="text-2xl font-semibold text-secondary dark:text-white hover:text-primary transition-colors py-3"
                 >
-                  {link.label}
-                </motion.a>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileOpen(false)}
+                    className={`text-2xl font-semibold transition-colors py-3 block ${
+                      pathname === link.href
+                        ? "text-primary"
+                        : "text-secondary dark:text-white hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -161,7 +160,9 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.05 }}
                 className="mt-6"
               >
-                <Button size="lg">Únete al Equipo</Button>
+                <Link href="/contacto" onClick={() => setIsMobileOpen(false)}>
+                  <Button size="lg">Únete al Equipo</Button>
+                </Link>
               </motion.div>
             </div>
           </motion.div>

@@ -15,14 +15,13 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Disciplinas", href: "#disciplinas" },
-  { label: "Equipo", href: "#equipo" },
-  { label: "Competencias", href: "#competencias" },
-  { label: "Galería", href: "#galeria" },
-  { label: "Tienda", href: "#tienda" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", href: "/" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Disciplinas", href: "/disciplinas" },
+  { label: "Equipo", href: "/equipo" },
+  { label: "Competencias", href: "/competencias" },
+  { label: "Galería", href: "/galeria" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export const disciplines = [

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import MainLayout from "@/components/layout/main-layout";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -112,7 +113,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white dark:bg-secondary antialiased">
-        {children}
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );
